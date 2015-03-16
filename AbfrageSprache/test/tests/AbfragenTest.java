@@ -12,6 +12,8 @@ import org.junit.Test;
 
 import abfragen.AbfrageLexer;
 import abfragen.AbfrageParser;
+import abfragen.TextCreator;
+import abfragen.TextVisitor;
 
 public class AbfragenTest {
 
@@ -52,7 +54,7 @@ public class AbfragenTest {
 
 			System.out.println(tree.getText());
 
-			TestVisitor visitor = new TestVisitor();
+			TextVisitor visitor = new TextVisitor();
 
 			TextCreator textCreator = visitor.visit(tree);
 

@@ -1,4 +1,4 @@
-package tests;
+package abfragen;
 
 import java.util.Hashtable;
 
