@@ -22,11 +22,14 @@ public class TextVariable implements TextCreator {
 	@Override
 	public boolean isVisible(Hashtable<String, String> hash) {
 		String t =  hash.get(key);
+		if (t == null) return false;
+		
 		if (patterns == null) {
 			return ! ( t == null || "".equals(t.trim()));
 		} else {
 			for (Pattern p : patterns) {
-				if (p.matcher(t).matches()) {
+				
+				if (p.matcher(t).find()) {
 					return true;
 				}
 			}

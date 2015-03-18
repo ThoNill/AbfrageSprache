@@ -1,21 +1,14 @@
 grammar Abfrage;
 
+options { tokenVocab=AbfrageLexer;}
 
 text : teil*;
 
-teil :  TEXT | optional | varname;
+teil :  VARNAME | TEXT | optional | varname;
 
-regexp : '/' INREGEXP '/';
+regexp : RESTART RE RESTOP ;
 
-optional : '{{' teil* '}}';
+optional : DDO teil* DDC;
 
-varname : '${' TEXT regexp* '}';
+varname : VO VARNAME regexp* VC ;
 
-// ID : [a-zA-Z][0-9a-zA-Z]*;
-
-TEXT : [ a-zA-Z0-9]+;
-
-INREGEXP : [^/]*;
-
-
-// WS : [ \t\r\n]+ -> skip;

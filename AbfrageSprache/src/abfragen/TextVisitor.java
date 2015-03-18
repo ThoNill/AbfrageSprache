@@ -1,6 +1,7 @@
 package abfragen;
 
 import java.util.List;
+
 import java.util.Vector;
 import java.util.regex.Pattern;
 
@@ -17,6 +18,9 @@ public class TextVisitor extends AbfrageBaseVisitor<TextCreator> {
 	public TextCreator visitTeil(@NotNull AbfrageParser.TeilContext ctx) {
 		if (ctx.TEXT() != null) {
 			return new TextConstant(ctx.TEXT().getText());
+		}
+		if (ctx.VARNAME() != null) {
+			return new TextConstant(ctx.VARNAME().getText());
 		}
 		return visitChildren(ctx);
 	}
@@ -69,11 +73,14 @@ public class TextVisitor extends AbfrageBaseVisitor<TextCreator> {
 		if (!ctx.regexp().isEmpty()) {
 			regexpList = new Vector<Pattern>();
 			for (RegexpContext regexpContext : ctx.regexp()) {
-				regexpList.add(Pattern.compile(regexpContext.INREGEXP()
-						.getText()));
+				String re = null;
+				re = regexpContext.getText();
+				re = re.substring(1, re.length()-1); // die / / weg 
+				
+				regexpList.add(Pattern.compile(re));
 			}
 		}
-		return new TextVariable(ctx.TEXT().getText(),regexpList);
+		return new TextVariable(ctx.VARNAME().getText(),regexpList);
 	}
 
 }

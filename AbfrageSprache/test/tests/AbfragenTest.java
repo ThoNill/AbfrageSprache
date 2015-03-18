@@ -21,7 +21,7 @@ public class AbfragenTest {
 	}
 
 	@Test
-	public void firstTest() {
+	public void firstTest1() {
 
 		String text = "das ist ein ";
 		Hashtable<String, String> hash = new Hashtable<>();
@@ -36,6 +36,33 @@ public class AbfragenTest {
 		hash.put("a","inhalt");
 		
 		teste("das ist ein test inhalt ",text,hash);
+
+	}
+	
+	@Test
+	public void firstTest2() {
+
+		String text = "das ist ein ";
+		Hashtable<String, String> hash = new Hashtable<>();
+
+		teste("das ist ein ",text,hash);
+		
+		text = "das ist ein {{test ${a/3/} }}";
+		hash = new Hashtable<>();
+
+		teste("das ist ein ",text,hash);
+		
+		hash.put("a","inhalt");
+		
+		teste("das ist ein ",text,hash);
+		
+		hash.put("a","36");
+		
+		teste("das ist ein test 36 ",text,hash);
+		
+		text = "das ist ein {{test ${a/[1-9]*/} }}";
+		
+		teste("das ist ein test 36 ",text,hash);
 
 	}
 
