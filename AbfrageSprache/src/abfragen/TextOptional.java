@@ -1,6 +1,6 @@
 package abfragen;
 
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.Vector;
 
 public class TextOptional extends TextTeil {
@@ -9,7 +9,7 @@ public class TextOptional extends TextTeil {
 	}
 
 	@Override
-	public boolean isVisible(Hashtable<String, String> hash) {
+	public boolean isVisible(HashMap<String, String> hash) {
 		boolean visible = true;
 		for(TextCreator tc : teile) {
 			visible = visible && tc.isVisible(hash);

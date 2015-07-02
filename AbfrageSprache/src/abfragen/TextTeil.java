@@ -1,6 +1,6 @@
 package abfragen;
 
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.Vector;
 
 public class TextTeil implements TextCreator {
@@ -15,7 +15,7 @@ public class TextTeil implements TextCreator {
 
 
 	@Override
-	public String create(Hashtable<String, String> hash) {
+	public String create(HashMap<String, String> hash) {
 		if (!isVisible(hash)) {
 			return "";
 		}
@@ -27,7 +27,7 @@ public class TextTeil implements TextCreator {
 	}
 
 	@Override
-	public boolean isVisible(Hashtable<String, String> hash) {
+	public boolean isVisible(HashMap<String, String> hash) {
 		return true;
 	}
 

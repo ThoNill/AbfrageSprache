@@ -2,7 +2,7 @@ package tests;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.util.Hashtable;
+import java.util.HashMap;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -24,12 +24,12 @@ public class AbfragenTest {
 	public void firstTest1() {
 
 		String text = "das ist ein ";
-		Hashtable<String, String> hash = new Hashtable<>();
+		HashMap<String, String> hash = new HashMap<>();
 
 		teste("das ist ein ",text,hash);
 		
 		text = "das ist ein {{test ${a} }}";
-		hash = new Hashtable<>();
+		hash = new HashMap<>();
 
 		teste("das ist ein ",text,hash);
 		
@@ -43,12 +43,12 @@ public class AbfragenTest {
 	public void firstTest2() {
 
 		String text = "das ist ein ";
-		Hashtable<String, String> hash = new Hashtable<>();
+		HashMap<String, String> hash = new HashMap<>();
 
 		teste("das ist ein ",text,hash);
 		
 		text = "das ist ein {{test ${a/3/} }}";
-		hash = new Hashtable<>();
+		hash = new HashMap<>();
 
 		teste("das ist ein ",text,hash);
 		
@@ -66,7 +66,7 @@ public class AbfragenTest {
 
 	}
 
-	protected void teste(String expected,String text,Hashtable<String, String> hash) {
+	protected void teste(String expected,String text,HashMap<String, String> hash) {
 		try {
 			ByteArrayInputStream in = new ByteArrayInputStream(text.getBytes());
 			ANTLRInputStream input;

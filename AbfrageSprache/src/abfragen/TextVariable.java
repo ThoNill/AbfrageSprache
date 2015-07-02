@@ -1,6 +1,6 @@
 package abfragen;
 
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.Vector;
 import java.util.regex.Pattern;
 
@@ -15,12 +15,12 @@ public class TextVariable implements TextCreator {
 	}
 
 	@Override
-	public String create(Hashtable<String, String> hash) {
+	public String create(HashMap<String, String> hash) {
 		return hash.get(key);
 	}
 
 	@Override
-	public boolean isVisible(Hashtable<String, String> hash) {
+	public boolean isVisible(HashMap<String, String> hash) {
 		String t =  hash.get(key);
 		if (t == null) return false;
 		

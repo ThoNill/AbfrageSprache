@@ -1,6 +1,6 @@
 package abfragen;
 
-import java.util.Hashtable;
+import java.util.HashMap;
 
 public class TextConstant implements TextCreator {
 	String text;
@@ -11,12 +11,12 @@ public class TextConstant implements TextCreator {
 	}
 
 	@Override
-	public String create(Hashtable<String, String> hash) {
+	public String create(HashMap<String, String> hash) {
 		return text;
 	}
 
 	@Override
-	public boolean isVisible(Hashtable<String, String> hash) {
+	public boolean isVisible(HashMap<String, String> hash) {
 		return true;
 	}
 

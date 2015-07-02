@@ -1,8 +1,8 @@
 package abfragen;
 
-import java.util.Hashtable;
+import java.util.HashMap;
 
 public interface TextCreator {
-	String create(Hashtable<String,String> hash);
-	boolean isVisible(Hashtable<String,String> hash);
+	String create(HashMap<String,String> hash);
+	boolean isVisible(HashMap<String,String> hash);
 }
