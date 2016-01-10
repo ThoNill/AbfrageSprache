@@ -73,6 +73,7 @@
 	</dependencies>
 
 	<build>
+		<defaultGoal>clean antlr4:antlr4 install</defaultGoal>
 		<sourceDirectory>src</sourceDirectory>
 		<testSourceDirectory>test</testSourceDirectory>
 		<plugins>
@@ -91,8 +92,14 @@
 				<groupId>org.antlr</groupId>
 				<artifactId>antlr4-maven-plugin</artifactId>
 				<version>4.3</version>
-				<!-- <executions> <execution> <id>antlr</id> <goals> <goal>antlr4</goal> 
-					</goals> </execution> </executions> -->
+				<executions>
+					<execution>
+						<id>antlr</id>
+						<goals>
+							<goal>antlr4</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
